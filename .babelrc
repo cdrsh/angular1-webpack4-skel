@@ -1,0 +1,16 @@
+{
+    "presets": [
+        ["@babel/preset-env",{
+            "targets": {
+                "browsers": ["last 2 versions", "safari >= 7"]
+            },
+            "forceAllTransforms":true
+        }],
+        "@babel/preset-es2015"
+    ],
+    "plugins": [
+        ["@babel/plugin-proposal-class-properties", { "loose": true }],
+        "@babel/plugin-proposal-object-rest-spread"
+    ]
+
+}

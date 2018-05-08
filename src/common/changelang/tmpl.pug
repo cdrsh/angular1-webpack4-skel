@@ -1,0 +1,22 @@
+.row
+	.col-1
+	.col-10
+		.jumbotron
+			h4.title i18n example :
+			a.bld.tc_gray(href="#" ng-click="$ctrl.onSetLang('ru')")
+				span.flag-icon.flag-icon-ru
+				| {{ 'RU' | translate }}
+			| &nbsp;/ &nbsp;
+			a.bld.tc_gray(href="#" ng-click="$ctrl.onSetLang('en')")
+				span.flag-icon.flag-icon-us
+				| {{ 'EN' | translate }}
+			| &nbsp;/ &nbsp;
+			a.bld.tc_gray(href="#" ng-click="$ctrl.onSetLang('de')")
+				span.flag-icon.flag-icon-de
+				| {{ 'DE' | translate }}
+			br
+			| Translated text:{{ 'TEXT1' | translate }}
+		hr
+		br
+		br
+		br

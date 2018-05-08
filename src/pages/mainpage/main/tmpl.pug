@@ -1,0 +1,190 @@
+div
+	br
+	changelang-component
+	br
+	h4.title Route examples
+	a(ui-sref="main", ui-sref-active="active") Main
+	br
+	a(ui-sref="main2", ui-sref-active="active") Main2
+	br
+	a(ui-sref="mainsubpage1({par1:1,par2:'par2'})", ui-sref-active="active") Main/Subpage1 with params
+	br
+	a(ui-sref="tmplHTML", ui-sref-active="active") tmpl HTML
+	br
+	a(ui-sref="tmplPUG", ui-sref-active="active") tmplPUG
+	br
+	a(ui-sref="stateTmplHBR", ui-sref-active="active") stateTmplHBR
+	br
+	h4.title Current Route Name: {{$ctrl.routeName}}
+	hr
+	br
+	br
+	br
+
+	h4.title Subviews in main:
+	ui-view(name="view2")
+	ui-view(name="view3")
+	hr
+	br
+	br
+	br
+
+	h4.title Images:
+	img(src="images/logo.png")
+	hr
+	br
+	br
+	br
+
+	h4.title Styles:
+	h4.red-css Content less import css
+	h4.green-less Content less
+	h4.magenta-less Content less import less
+	h4.orange-scss Content scss
+	h4.blue-scss Content scss-import
+	h4.postcss-style Fixed sugar-parser style
+	hr
+	br
+	br
+	br
+
+	h4.title Screen sizes:
+	.alert.alert-primary(role="alert")
+		.d-none.d-xl-block XL
+		.d-none.d-lg-block.d-xl-none LG
+		.d-none.d-md-block.d-lg-none.d-xl-none MD
+		.d-none.d-sm-block.d-md-none.d-lg-none.d-xl-none SM
+		.d-sm-none.d-md-none.d-lg-none.d-xl-none XS
+	hr
+	br
+	br
+	br
+
+	h4.title Font-awesome:
+	br
+	i.fa.fa-user
+	i.fa.fa-user
+	i.fa.fa-github-square
+	hr
+	br
+	br
+	br
+
+	h4.title Bulma as css framework:
+	.columns
+		.column.brd
+			| First column
+		.column.brd
+			| Second column
+		.column.brd
+			| Third column
+		.column.brd
+			| Four column
+	br
+	a.button.is-primary Primary
+	a.button.is-link Link
+	a.button.is-info Info
+	a.button.is-success Success
+	a.button.is-warning Warning
+	a.button.is-danger Danger
+	hr
+	br
+	br
+	br
+
+	h4.title Flag icon css:
+	span.flag-icon.flag-icon-de
+	br
+	span.flag-icon.flag-icon-us
+	br
+	span.flag-icon.flag-icon-ru
+	hr
+	br
+	br
+	br
+
+	h4.title lodash: {{$ctrl.lodashObj}}
+	hr
+	br
+	br
+	br
+
+	h4.title moment: {{$ctrl.momentDate}}
+	br
+	span(am-time-ago="$ctrl.momentDate | amParse:'DD.MM.YYYY HH:mm:ss'")
+	br
+	| {{$ctrl.momentDate | amUtcOffset:'+0300' | amDateFormat:'MM.DD.YYYY HH:mm:ss'}}
+	hr
+	br
+	br
+	br
+
+	color-picker(ng-model="$ctrl.myColor", options="$ctrl.options")
+	hr
+	br
+	br
+	br
+
+	h4.title Form and validate
+	form(novalidate="", ng-submit='$ctrl.submitForm()', name="myForm")
+		.field
+			label.label Email
+			.control.has-icons-left.has-icons-right
+				input.input(
+					type="email", 
+					ng-model="$ctrl.Obj.inpval", 
+					name="myEmail", 
+					ng-class="{\
+						'is-danger':myForm.myEmail.$invalid &&\
+						!myForm.myEmail.$pristine,\
+						'is-success':myForm.myEmail.$valid &&\
+						!myForm.myEmail.$pristine\
+					}", 										
+					required='',
+					ng-minlength='5',
+					ng-maxlength='30'
+				)
+				span.icon.is-small.is-left
+					i.fa.fa-envelope
+				span.icon.is-small.is-right(
+					ng-show="myForm.myEmail.$invalid && !myForm.myEmail.$pristine"
+				)
+					i.fa.fa-exclamation-triangle.help.is-danger
+				span.icon.is-small.is-right(
+					ng-show="myForm.myEmail.$valid && !myForm.myEmail.$pristine"
+				)
+					i.fa.fa-check.help.is-success
+			p.help.is-danger(
+				ng-show="myForm.myEmail.$invalid && !myForm.myEmail.$pristine"
+			) 
+				| This email is invalid
+	span(ng-bind="$ctrl.Obj.inpval")
+	h4.title Angular-messages
+	div(ng-messages="myForm.myEmail.$error" role="alert")
+		div(ng-message="required") You did not enter a field
+		div(ng-message="minlength") Your field is too short
+		div(ng-message="maxlength") Your field is too long
+	hr
+	br
+	br
+	br
+
+	h4.title ng-file-upload
+	br
+	.button(
+		ngf-select="",
+		ng-model="$ctrl.file",
+		name="file",
+		ngf-pattern="'image/*'",
+		ngf-accept="'image/*'", 
+		ngf-max-size="20MB",
+		ngf-min-height="100",
+		ngf-resize="{width: 100, height: 100}"
+	)
+		| Select
+	br
+	| Selected file:
+	br
+	span(ng-bind="$ctrl.file")
+	br
+	.button(type="button", ng-click="$ctrl.upload($ctrl.file)") Upload selected

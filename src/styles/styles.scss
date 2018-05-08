@@ -1,0 +1,13 @@
+@import "./colors.scss";
+
+$fa-font-path:   "../../node_modules/font-awesome/fonts/" !default;
+@import "../../node_modules/font-awesome/scss/font-awesome";
+
+.orange-scss
+{
+	color:orange;
+}
+
+.brd {
+	border:1px solid #CCCCCC;
+}
